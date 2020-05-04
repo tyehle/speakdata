@@ -1,15 +1,29 @@
 # speakdata
-A very useful guide on how to pronounce byte sequences
+A very useful guide on how to pronounce byte sequences.
+
+Have you ever looked for a quick and easy way to say 84:a3:fe:67:c5:01, or maybe 192.168.0.1?
+
+Look no further! `speakdata` is a canonical way to translate bytes into easy pronouncable syllables.
 
 ```pycon
->>> import random
 >>> import speakdata
->>> 
->>> data = [random.randint(0, 255) for _ in range(8)]
->>> 
->>> print(":".join(f"{byte:02x}" for byte in data))
-ed:6f:16:9b:eb:a8:d0:07
->>> 
->>> print(speakdata.pronounce(data))
-Toijeyting bownining tutul saibaking.
+>>>
+>>> speakdata.pronounce(b'\x84\xa3\xfe\x67\xc5\x01')
+'Lifufing torleyking sijabing.'
+>>>
+>>> speakdata.pronounce([192, 168, 0, 1])
+'Saful bababing.'
+```
+
+It also has a nifty executable:
+
+```shell
+$ head -c 24 /dev/random | speakdata
+Lafoin fowkoising joiboiling tubaiking jujowl fowsain sowtat jiforn. Naijoiking seynij nujoiting korsul.
+```
+
+# Installation
+
+```shell
+pip install speakdata
 ```
