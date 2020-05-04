@@ -1,0 +1,7 @@
+build_dir := "build"
+
+doc:
+    sphinx-build -aE source {{build_dir}}
+
+clean:
+    rm -rf {{build_dir}}
