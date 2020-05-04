@@ -5,7 +5,7 @@ doc:
     sphinx-build -aE source {{build_dir}}
 
 install-doc-deps:
-    pip install sphinx sphinxcontrib-napoleon
+    pip install sphinx
 
 clean:
     rm -rf {{build_dir}}
