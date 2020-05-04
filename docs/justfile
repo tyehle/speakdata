@@ -1,7 +1,11 @@
 build_dir := "build"
 
 doc:
+    sphinx-apidoc --force --output-dir=source/ ../src
     sphinx-build -aE source {{build_dir}}
+
+install-doc-deps:
+    pip install sphinx sphinxcontrib-napoleon
 
 clean:
     rm -rf {{build_dir}}
