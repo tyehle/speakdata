@@ -1,2 +1,2 @@
-def console_entry():
+def console_entry() -> None:
     pass
