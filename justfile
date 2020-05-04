@@ -13,8 +13,10 @@ format:
 check: test type lint format
     tox
 
-build:
+clean:
     rm -rf src/speakdata.egg-info build dist
+
+build: clean
     python3 setup.py sdist bdist_wheel
 
 publish: check build
