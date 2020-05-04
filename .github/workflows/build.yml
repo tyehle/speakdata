@@ -1,0 +1,27 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup
+      run: |
+        # Find every installed python and add it to PATH
+        for name in $(find ${RUNNER_TOOL_CACHE}/Python -wholename "*/x64/bin"); do PATH=$PATH:$name; done;
+        # export our new path for the following steps
+        echo "::set-env name=PATH::${PATH}"
+
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip setuptools
+        python3 -m pip install tox
+
+    - name: Run tests
+      run: python3 -m tox
