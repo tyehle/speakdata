@@ -1,4 +1,12 @@
+"""Pronounce binary data.
+
+This module exports only one useful function, pronounce. It is used to convert
+binary data into pronouncable words.
+"""
+
+
 def convert_u16(data: int) -> str:
+    """Convert a 16 bit unsigned number into a word."""
     if data < 0 or data >= 2 ** 16:
         raise ValueError(f"Not a u16: {data}")
 
@@ -21,6 +29,21 @@ def convert_u16(data: int) -> str:
 
 
 def pronounce(data: bytes) -> str:
+    """Convert a byte sequence into a string.
+
+    Every two bytes becomes a word, and every 8 words becomes a sentence. If
+    there are an odd number of bytes then a zero byte fills out the last word.
+
+    Example:
+        >>> speakdata.pronounce([192, 168, 0, 1])
+        'Saful bababing.'
+
+    Args:
+        data: A byte sequence to pronounce
+
+    Returns:
+        A pronouncable string representing the the given bytes
+    """
     result = []
     sentence = []
     partial = []
