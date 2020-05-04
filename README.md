@@ -1,7 +1,7 @@
 # speakdata
 A very useful guide on how to pronounce byte sequences
 
-```python
+```pycon
 >>> import random
 >>> import speakdata
 >>> 
