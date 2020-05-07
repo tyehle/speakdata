@@ -1,4 +1,6 @@
 # speakdata
+![Build](https://github.com/tyehle/speakdata/workflows/Build/badge.svg)
+
 A very useful guide on how to pronounce byte sequences.
 
 Have you ever looked for a quick and easy way to say `84:a3:fe:67:c5:01`, or maybe `192.168.0.1`?
