@@ -6,11 +6,12 @@ type:
 
 lint:
     flake8 src tests
+    black --line-length=79 --check src tests
 
 format:
     black --line-length=79 src tests
 
-check: test type lint format
+check: test type lint
     tox
 
 clean:
