@@ -8,11 +8,14 @@ Look no further! `speakdata` is a canonical way to translate bytes into easy pro
 ```pycon
 >>> import speakdata
 >>>
->>> speakdata.pronounce(b'\x84\xa3\xfe\x67\xc5\x01')
-'Lifufing torleyking sijabing.'
->>>
 >>> speakdata.pronounce([192, 168, 0, 1])
 'Saful bababing.'
+>>>
+>>> speakdata.pronounce(b'\x84\xa3\xfe\x97\xc5\x01')
+'Lifufing torniking sijabing.'
+>>> 
+>>> speakdata.denounce('Lifufing torniking sijabing.')
+b'\x84\xa3\xfe\x97\xc5\x01'
 ```
 
 It also has a nifty executable:
